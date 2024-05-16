@@ -1,3 +1,4 @@
+//이거 왜 시간제한 안걸리지
 function solution(name, yearning, photo) {
     var answer = [];
     for(let a = 0;a<photo.length;a++){
