@@ -1,0 +1,5 @@
+a, b = input().split()
+a, b = int(a), int(b)
+li1 = list(map(int, input().split()))
+li1.sort(reverse=True)
+print(li1[b-1])
