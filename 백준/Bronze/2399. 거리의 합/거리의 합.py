@@ -1,11 +1,8 @@
-import sys
-a = sys.stdin.readline()
-li1 = list(map(int, sys.stdin.readline().split()))
+a = int(input())
+li1 = list(map(int, input().split()))
 ans = 0
-b = len(li1)
-li1.sort()
-c= 0
-for i in range(int(a)):
-    ans+=li1[i]*i-c
-    c += li1[i]
+for i in range(len(li1)):
+    for j in range(i+1, len(li1)):
+        ans+=abs(li1[i]-li1[j])
+        #print(li1[i],li1[j])
 print(ans*2)
