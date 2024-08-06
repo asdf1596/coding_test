@@ -1,0 +1,1 @@
+a = [print(b) for b in range(int(input()), 0,-1)]
