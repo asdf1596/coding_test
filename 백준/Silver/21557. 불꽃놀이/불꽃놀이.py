@@ -1,7 +1,11 @@
+import sys
+from collections import deque
+input = sys.stdin.readline
 a= int(input())
-li1 = list(map(int, input().split()))
-if li1[0]>li1[-1]:
-    b = li1[0]
+li1 = deque(list(map(int, input().split())))
+c,d = li1.popleft(),li1.pop()
+if c>d:
+    b = c
 else:
-    b = li1[-1]
+    b = d
 print(b-(a-2))
