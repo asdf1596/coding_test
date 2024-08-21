@@ -1,8 +1,9 @@
+import sys
 from collections import deque
-a = int(input())
+a = int(sys.stdin.readline())
 for i in range(a):
-    b,c = map(int ,input().split())
-    li1 = list(map(int, input().split()))
+    b,c = map(int ,sys.stdin.readline().split())
+    li1 = list(map(int, sys.stdin.readline().split()))
     li1 = deque(li1)
     pre = c
     Max = max(li1)
