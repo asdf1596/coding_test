@@ -1,29 +1,33 @@
+#0910 마지막 버전
 import sys
 def try1(a, b):
-    while b != 0:
+    while b:
         a, b = b, a%b
     return a
 a,b = map(int, sys.stdin.readline().split())
+cdg = try1(a,b)
 z = int(sys.stdin.readline())
+results = []
 for _ in range(z):
     c,d,e = map(int, sys.stdin.readline().split())
+    num1 = (a+(d-1)*b)
+    num2 = (a+(e-1)*b)
     if c == 1:
         if d==e:
-            print(a+(d-1)*b)
+            results.append(str(num1) + '\n')
         elif (e-d)%2==1:
-            ans = ((a+(d-1)*b)+(a+(e-1)*b))*((e-d+1)//2)
-            print(ans)
+            ans = ((num1)+(num2))*((e-d+1)//2)
+            results.append(str(ans) + '\n')
         else:
-            ans = ((a+(d-1)*b)+(a+(e-1)*b))*((e-d)//2)+((a+(d-1)*b)+(a+(e-1)*b))//2
-            print(ans)
+            ans = ((num1)+(num2))*((e-d)//2)+((num1)+(num2))//2
+            results.append(str(ans) + '\n')
     else:
         if b !=0:
             if d==e:
-                print(a+(d-1)*b)
+                results.append(str(num1) + '\n')
             else:
-                f = try1(a+(d-1)*b, a+(d-1)*b+b)
-                for i in range(a+(d-1)*b+b, a+(e-1)*b+1, b):
-                    f = try1(i, f)
-                print(f)
+                f = cdg
+                results.append(str(f) + '\n')
         else:
-            print(a)
+            results.append(str(a) + '\n')
+sys.stdout.write("".join(results))
