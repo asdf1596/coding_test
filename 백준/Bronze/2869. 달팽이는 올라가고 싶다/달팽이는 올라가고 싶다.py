@@ -1,9 +1,21 @@
-a,b,c = map(int, input().split())
-d = c-a
-e = d//(a-b)
-f = c-(e*(a-b))
-if f%a==0:
-    ans = e+f//a
-else:
-    ans = e+f//a+1
-print(ans)
+up, down, top = map(int, input().split())
+pre = 0
+day = 0
+def check(a, b):
+    global day
+    #print("check", day, b/a)
+    if(b/a == 1.0):
+        day+=1
+        return 0
+    elif(int(b/a) < 1):
+        day+=1
+    else:
+        day+=int(b/a)
+    return int(b/a)
+while(True):
+    c = check(up, top)
+    top-=c*up
+    top+=c*down
+    if(c<1):
+        break
+print(day)
